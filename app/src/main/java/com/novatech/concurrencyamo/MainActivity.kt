@@ -8,6 +8,7 @@ import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -15,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.novatech.concurrencyamo.ui.theme.ConcurrencyAmoTheme
 import kotlinx.coroutines.CoroutineName
 import kotlinx.coroutines.CoroutineScope
@@ -28,6 +30,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 
+@ExperimentalMaterial3Api
 class MainActivity : ComponentActivity() {
     private var TAG: String = "Coroutine"
 
@@ -52,6 +55,8 @@ class MainActivity : ComponentActivity() {
 //        }
 
         setContent {
+            val viewModel: MainViewModel = viewModel()
+
             Navigation()
         }
     }
